@@ -412,7 +412,6 @@ void message_base::bin_in(std::fstream &fios)
 message_base* message_base::search_for_time_interval
 (const data_msg::date_time &date1, const data_msg::date_time &date2) const
 {
-	bool no_message = true;
 	int size = list.size();
 	for (int i = 0; i < size; i++)
 	{
