@@ -1,0 +1,8 @@
+Stack based on static array:
+For 10000 elements added and deleted:	Time - 0.00477247
+
+Stack based on dynamic array:
+For 10000 elements added and deleted:	Time - 0.0349104
+
+Stack based on list:
+For 10000 elements added and deleted:	Time - 0.0100631

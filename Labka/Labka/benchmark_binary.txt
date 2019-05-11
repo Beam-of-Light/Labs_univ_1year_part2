@@ -1,0 +1,11 @@
+For 10 elements:	Time - 0.000576182s		Size of file - 550 bytes
+For 20 elements:	Time - 0.00103093s		Size of file - 1100 bytes
+For 40 elements:	Time - 0.00268544s		Size of file - 2200 bytes
+For 80 elements:	Time - 0.00501935s		Size of file - 4400 bytes
+For 160 elements:	Time - 0.013021s		Size of file - 8800 bytes
+For 320 elements:	Time - 0.0484296s		Size of file - 17600 bytes
+For 640 elements:	Time - 0.168873s		Size of file - 35200 bytes
+For 1280 elements:	Time - 0.678032s		Size of file - 70400 bytes
+For 2560 elements:	Time - 2.55651s		Size of file - 140800 bytes
+For 5120 elements:	Time - 9.88081s		Size of file - 281600 bytes
+For 10240 elements:	Time - 39.6497s		Size of file - 563200 bytes
