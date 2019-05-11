@@ -417,7 +417,7 @@ message_base* message_base::search_for_time_interval
 	{
 		if (list[i].date > date1) 
 		{	/* look for first element */
-			message_base *sorted_list = new message_base;
+			message_base *result = new message_base;
 			std::vector<data_msg>::const_iterator beg = list.cbegin(), end = beg;
 			beg += i;
 			while (i < size && list[i].date < date2)
@@ -427,34 +427,34 @@ message_base* message_base::search_for_time_interval
 			end += i;
 			if (end == beg) return nullptr;
 			
-			sorted_list->list.insert(sorted_list->list.begin(), beg, end);
-			return sorted_list;
+			result->list.insert(result->list.begin(), beg, end);
+			return result;
 		}
 	}
 	return nullptr;
 }
 
 message_base* message_base::search_for_type_and_system_loading
-	(cuint &type, const double &system_loading) const
+(cuint & type, const double& system_loading) const
 {
-	message_base *sorted_list = new message_base;
+	message_base* result = new message_base;
 
 	bool no_message = true;
 	int size = list.size();
-	
+
 	for (int i = 0; i < size; i++)
 	{
-		if(list[i].type == type && list[i].system_loading >= system_loading)
+		if (list[i].type == type && list[i].system_loading >= system_loading)
 		{
-			sorted_list->list.push_back(list[i]);
+			result->list.push_back(list[i]);
 			no_message = false;
 		}
 	}
 
-	return (no_message ? nullptr : sorted_list);
+	return (no_message ? nullptr : result);
 }
 
-message_base* message_base::search_for_fragment(const std::string &fragment) const
+message_base* message_base::search_for_fragment(const std::string & fragment) const
 {
 	if (fragment.empty()) return nullptr;
 	message_base* sorted_list = new message_base;
