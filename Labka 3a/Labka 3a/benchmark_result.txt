@@ -1,0 +1,39 @@
+------------------ Random array ------------------
+
+Bubble sort:
+For 10000 elements:	Time - 33.9328
+
+Quick sort:
+For 10000 elements:	Time - 0.0644594
+
+Merge sort:
+For 10000 elements:	Time - 0.0663648
+
+Combined sort(Quick & Bubble):
+For 10000 elements:	Time - 0.0640543
+------------------ Almost not sorted array ------------------
+
+Bubble sort:
+For 10000 elements:	Time - 37.9611
+
+Quick sort:
+For 10000 elements:	Time - 0.0756395
+
+Merge sort:
+For 10000 elements:	Time - 0.0637917
+
+Combined sort(Quick & Bubble):
+For 10000 elements:	Time - 0.0665001
+------------------ Almost sorted array ------------------
+
+Bubble sort:
+For 10000 elements:	Time - 26.7055
+
+Quick sort:
+For 10000 elements:	Time - 0.0750703
+
+Merge sort:
+For 10000 elements:	Time - 0.0634555
+
+Combined sort(Quick & Bubble):
+For 10000 elements:	Time - 0.0631105
