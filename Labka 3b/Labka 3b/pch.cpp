@@ -272,13 +272,22 @@ void sort(message_base& test)
 	uint number;
 	while (true)
 	{
-		std::cout << "\nWrite number 1-3:\n1 - Counting sort\n2 - Radix\n";
+		std::cout << "\nWrite number 1-3:\n1 - Counting sort\n2 - Radix sort\n3 - Sort by different fields\n";
 		write_num(number);
-
-		if (number == 1)
+		switch (number)
 		{
+		case 1:
 			test.counting_sort();
-			break;
+			return;
+		case 2:
+			test.radix_sort();
+			return;
+		case 3:
+			
+			return;
+		default:
+			std::cout << "\nWrite number again\n";
+			continue;
 		}
 	}
 }

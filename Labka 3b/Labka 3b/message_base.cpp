@@ -444,7 +444,7 @@ void message_base::radix_sort()
 			++arr[(current.priority / exp) % 10];
 		}
 		--arr[0];
-		for (int i = 1; i < 5; i++)
+		for (int i = 1; i < 10; i++)
 		{
 			arr[i] += arr[i - 1];
 		}
@@ -452,7 +452,7 @@ void message_base::radix_sort()
 		for (int i = list.size() - 1; i >= 0; --i)
 		{
 			list[arr[(temp[i].priority / exp) % 10]] = temp[i];
-			--arr[temp[i].priority];
+			--arr[(temp[i].priority / exp) % 10];
 		}
 	}
 }
