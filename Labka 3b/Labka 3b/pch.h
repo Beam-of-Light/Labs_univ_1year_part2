@@ -10,6 +10,8 @@ enum MSG_TYPE { Debug, Info, Warning, Error, Fatal };
 #include <vector>
 #include <ctime>
 #include <chrono>
+#include <algorithm>
+#include <functional>
 
 
 class simple_timer
@@ -24,11 +26,14 @@ private:
 
 
 bool check_message_fragment(const std::string& message, const std::string& fragment);
+
 template <typename T>
 void write_num(T& data);
 void write_message(std::string& message);
+
 void interactive();
 void sort(class message_base& test);
+void sort_by_fields(message_base& test);
 void demo();
 void benchmark();
 

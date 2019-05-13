@@ -283,7 +283,7 @@ void sort(message_base& test)
 			test.radix_sort();
 			return;
 		case 3:
-			
+			sort_by_fields(test);
 			return;
 		default:
 			std::cout << "\nWrite number again\n";
@@ -292,6 +292,82 @@ void sort(message_base& test)
 	}
 }
 
+
+
+
+
+bool reverse_and_check(uint& number)
+{
+	if (number > 10000) return false;
+	int reversed = 0;
+	while (number > 0)
+	{
+		if (!(number % 10 <= 4 && number % 10 != 0)) return false;
+		reversed = reversed * 10 + number % 10;
+		number /= 10;
+	}
+	number = reversed;
+	return true;
+};
+
+bool cmp(const message_base::data_msg& a, const message_base::data_msg& b, uint& number)
+{
+	switch (number % 10)
+	{
+	case 1:
+		if(a.date == b.date)
+		{
+			number /= 10;
+			return cmp(a, b, number);
+		}
+		else return (a.date < b.date);
+	case 2:
+		if (a.priority == b.priority)
+		{
+			number /= 10;
+			return cmp(a, b, number);
+		}
+		else return (a.priority < b.priority);
+	case 3:
+		if (a.type == b.type)
+		{
+			number /= 10;
+			return cmp(a, b, number);
+		}
+		else return (a.type < b.type);
+	case 4:
+		if (a.system_loading == b.system_loading)
+		{
+			number /= 10;
+			return cmp(a, b, number);
+		}
+		else return (a.system_loading < b.system_loading);
+	default:
+		return false;
+	}
+}
+
+void sort_by_fields(message_base& test)
+{
+	uint number;
+	while (true)
+	{
+		std::cout << "\nWrite number 1-4:\n1 - Date\n2 - Priority\n3 - Type\n4 - System loading\nYou can sort by 1 or more fields\nExample: 134 - 1, 3, 4 fields\n";
+		write_num(number);
+		if (!reverse_and_check(number))
+		{
+			std::cout << "\nWrite number again\n";;
+			continue;
+		}
+
+		std::stable_sort(test.list.begin(), test.list.end(), 
+			[&](const message_base::data_msg & a, const message_base::data_msg & b)->bool
+			{
+				return cmp(a, b, number);
+			});
+		return;
+	}
+}
 
 
 void demo()

@@ -43,7 +43,6 @@ private:
 			friend data_msg;
 			friend message_base;
 			friend void interactive();
-			friend void sort(message_base& test);
 			friend void demo();
 			friend void benchmark();
 		};
@@ -71,7 +70,8 @@ private:
 
 		friend message_base;
 		friend void interactive();
-		friend void sort(message_base& test);
+		friend void sort_by_fields(message_base& test);
+		friend bool cmp(const data_msg& a, const data_msg& b, size_t& number);
 		friend void demo();
 		friend void benchmark();
 	};
@@ -109,7 +109,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, const message_base& base);
 	friend std::istream& operator>>(std::istream& fin, message_base& base);
 	friend void interactive();
-	friend void sort(message_base& test);
+	friend void sort_by_fields(message_base& test);
+	friend bool cmp(const data_msg& a, const data_msg& b, size_t& number);
 	friend void demo();
 	friend void benchmark();
 };
