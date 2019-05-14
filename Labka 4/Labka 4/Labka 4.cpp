@@ -1,4 +1,4 @@
-﻿// Tasks: 1, 4, 5 
+﻿// Tasks: 1, 4, 5, 10,
 #include "pch.h"
 #include "tree.h"
 
@@ -14,6 +14,8 @@ int main()
 
 		std::cout << "Childer: " << a.num_of_children() << "\nNodes: " << a.num_of_nodes() << "\nHeight: " << a.height() << std::endl;
 		std::cout << "\n--- Avarage ---\nChildren: " << a.avarage_num_of_children() << "\nNodes: " << a.avarage_num_of_nodes() << "\nHeight: " << a.avarage_height() << std::endl;
+		std::cout << "\nTree:\n";
+		a.print();
 	}
 	catch (const std::exception& ex)
 	{

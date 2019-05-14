@@ -20,6 +20,25 @@ void tree_node::add_node_by_random(const int& value, const double& chance)
 	}
 }
 
+void tree_node::print()
+{
+	std::cout << this->value;
+	size_t h = this->height(), size = this->branch.size();
+	if (size == 0) return;
+
+	std::cout << (h > 2 ? "  " : "(");
+
+	--size;
+	for (size_t i = 0; i < size; ++i)
+	{
+		this->branch[i]->print();
+		std::cout << ',';
+	}
+	this->branch[size]->print();
+
+	std::cout << (h > 2 ? "  " : ")");
+}
+
 size_t tree_node::num_of_children()
 {
 	return size_t(this->branch.size());
@@ -128,6 +147,12 @@ void tree::add_node_by_random(const int& value, const double& chance)
 	} else {
 		this->root->add_node_by_random(value, chance);
 	}
+}
+
+void tree::print()
+{
+	if (this->root == nullptr) std::cout << "Tree is empty";
+	else root->print();
 }
 
 size_t tree::num_of_children()

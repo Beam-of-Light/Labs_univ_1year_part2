@@ -12,6 +12,8 @@ public:
 	tree_node(const int& value);
 
 	void add_node_by_random(const int& value, const double& chance = 0.5);
+	void print();
+
 	size_t num_of_children();
 	double avarage_num_of_children();
 	size_t num_of_nodes();
@@ -27,6 +29,8 @@ public:
 	~tree();
 
 	void add_node_by_random(const int& value, const double& chance = 0.5);
+	void print();
+	
 	size_t num_of_children();
 	double avarage_num_of_children();
 	size_t num_of_nodes();
