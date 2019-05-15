@@ -5,6 +5,9 @@
 class tree_node
 {
 private:
+	tree_node* find_node_for_delete(const size_t& level, size_t& index);
+	void add_after_delete(tree_node* temp);
+
 	int value;
 	std::vector<tree_node*> branch;
 
@@ -12,6 +15,8 @@ public:
 	tree_node(const int& value);
 
 	void add_node_by_random(const int& value, const double& chance = 0.5);
+	void add_node_by_random(tree_node* node, const double& chance = 0.5);
+	int delete_node(const size_t& level);
 	void print();
 
 	size_t num_of_children();
@@ -20,15 +25,24 @@ public:
 	double avarage_num_of_nodes();
 	size_t height();
 	double avarage_height();
+
+	friend class tree;
 };
 
 class tree
 {
+private:
+	void add_after_delete(tree* temp);
+
+	tree_node* root;
+
 public:
 	tree();
 	~tree();
 
 	void add_node_by_random(const int& value, const double& chance = 0.5);
+	void add_node_by_random(tree_node* node, const double& chance = 0.5);
+	int delete_node(const size_t& level);
 	void print();
 	
 	size_t num_of_children();
@@ -37,9 +51,6 @@ public:
 	double avarage_num_of_nodes();
 	size_t height();
 	double avarage_height();
-
-private:
-	tree_node* root;
 };
 
 #endif /* TREE_H */
