@@ -32,7 +32,7 @@ public:
 class tree
 {
 private:
-	void add_after_delete(tree* temp);
+	void add_after_delete(tree_node* temp);
 
 	tree_node* root;
 

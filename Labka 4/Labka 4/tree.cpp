@@ -24,7 +24,7 @@ tree_node* tree_node::find_node_for_delete(const size_t& level, size_t& index)
 		++current_level;
 		for (size_t i = 0; i < size; i++)
 		{
-			this->branch[i]->delete_node(level);
+			this->branch[i]->find_node_for_delete(level, index);
 		}
 		--current_level;
 	}
