@@ -151,11 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="binary_tree.cpp" />
     <ClCompile Include="Labka 4.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="tree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="binary_tree.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="tree.h" />
   </ItemGroup>

@@ -13,6 +13,7 @@ private:
 
 public:
 	tree_node(const int& value);
+	~tree_node();
 
 	void add_node_by_random(const int& value, const double& chance = 0.5);
 	void add_node_by_random(tree_node* node, const double& chance = 0.5);
@@ -20,11 +21,11 @@ public:
 	void print();
 
 	size_t num_of_children();
-	double avarage_num_of_children();
+	double average_num_of_children();
 	size_t num_of_nodes();
-	double avarage_num_of_nodes();
+	double average_num_of_nodes();
 	size_t height();
-	double avarage_height();
+	double average_height();
 
 	friend class tree;
 };
@@ -46,11 +47,11 @@ public:
 	void print();
 	
 	size_t num_of_children();
-	double avarage_num_of_children();
+	double average_num_of_children();
 	size_t num_of_nodes();
-	double avarage_num_of_nodes();
+	double average_num_of_nodes();
 	size_t height();
-	double avarage_height();
+	double average_height();
 };
 
 #endif /* TREE_H */

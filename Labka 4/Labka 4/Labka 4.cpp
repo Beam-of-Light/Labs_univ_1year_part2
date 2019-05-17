@@ -13,7 +13,7 @@ int main()
 		}
 
 		std::cout << "Childer: " << a.num_of_children() << "\nNodes: " << a.num_of_nodes() << "\nHeight: " << a.height() << std::endl;
-		std::cout << "\n--- Avarage ---\nChildren: " << a.avarage_num_of_children() << "\nNodes: " << a.avarage_num_of_nodes() << "\nHeight: " << a.avarage_height() << std::endl;
+		std::cout << "\n--- Avarage ---\nChildren: " << a.average_num_of_children() << "\nNodes: " << a.average_num_of_nodes() << "\nHeight: " << a.average_height() << std::endl;
 		std::cout << "\nTree:\n";
 		a.print();
 
