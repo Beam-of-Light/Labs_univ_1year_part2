@@ -5,8 +5,13 @@
 class tree_node
 {
 private:
-	tree_node* find_node_for_delete(const size_t& level, size_t& index);
+	void find_node_for_delete(const size_t& level, size_t& index,
+		size_t& max_nodes, size_t& current_level, tree_node*& node_for_delete);
 	void add_after_delete(tree_node* temp);
+
+	void average_num_of_children(size_t& val, size_t& n);
+	void average_num_of_nodes(size_t& val, size_t& n, size_t& node_val);
+	void average_height(size_t& val, size_t& n);
 
 	int value;
 	std::vector<tree_node*> branch;
