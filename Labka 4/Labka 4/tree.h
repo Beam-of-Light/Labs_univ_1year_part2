@@ -9,9 +9,9 @@ private:
 		size_t& max_nodes, size_t& current_level, tree_node*& node_for_delete);
 	void add_after_delete(tree_node* temp);
 
-	void average_num_of_children(size_t& val, size_t& n);
-	void average_num_of_nodes(size_t& val, size_t& n, size_t& node_val);
-	void average_height(size_t& val, size_t& n);
+	void average_num_of_children(size_t& val, size_t& n) const;
+	void average_num_of_nodes(size_t& val, size_t& n, size_t& node_val) const;
+	void average_height(size_t& val, size_t& n) const;
 
 	int value;
 	std::vector<tree_node*> branch;
@@ -23,14 +23,14 @@ public:
 	void add_node_by_random(const int& value, const double& chance = 0.5);
 	void add_node_by_random(tree_node* node, const double& chance = 0.5);
 	int delete_node(const size_t& level);
-	void print();
+	void print() const;
 
-	size_t num_of_children();
-	double average_num_of_children();
-	size_t num_of_nodes();
-	double average_num_of_nodes();
-	size_t height();
-	double average_height();
+	size_t num_of_children() const;
+	double average_num_of_children() const;
+	size_t num_of_nodes() const;
+	double average_num_of_nodes() const;
+	size_t height() const;
+	double average_height() const;
 
 	friend class tree;
 };
@@ -49,14 +49,14 @@ public:
 	void add_node_by_random(const int& value, const double& chance = 0.5);
 	void add_node_by_random(tree_node* node, const double& chance = 0.5);
 	int delete_node(const size_t& level);
-	void print();
+	void print() const;
 	
-	size_t num_of_children();
-	double average_num_of_children();
-	size_t num_of_nodes();
-	double average_num_of_nodes();
-	size_t height();
-	double average_height();
+	size_t num_of_children() const;
+	double average_num_of_children() const;
+	size_t num_of_nodes() const;
+	double average_num_of_nodes() const;
+	size_t height() const;
+	double average_height() const;
 };
 
 #endif /* TREE_H */

@@ -37,7 +37,7 @@ void tree_node::add_after_delete(tree_node* temp)
 	this->add_node_by_random(temp);
 }
 
-void tree_node::average_num_of_children(size_t& val, size_t& n)
+void tree_node::average_num_of_children(size_t& val, size_t& n) const
 {
 	size_t size = this->branch.size();
 	if (size == 0) return;
@@ -51,7 +51,7 @@ void tree_node::average_num_of_children(size_t& val, size_t& n)
 	}
 }
 
-void tree_node::average_num_of_nodes(size_t& val, size_t& n, size_t& node_val)
+void tree_node::average_num_of_nodes(size_t& val, size_t& n, size_t& node_val) const
 {
 	size_t size = this->branch.size();
 	if (size != 0)
@@ -68,7 +68,7 @@ void tree_node::average_num_of_nodes(size_t& val, size_t& n, size_t& node_val)
 	if (size != 0) --node_val;
 }
 
-void tree_node::average_height(size_t& val, size_t& n)
+void tree_node::average_height(size_t& val, size_t& n) const
 {
 	size_t size = this->branch.size();
 	if (size == 0) return;
@@ -89,6 +89,10 @@ tree_node::tree_node(const int& value)
 
 tree_node::~tree_node()
 {
+	for (size_t i = 0, size = this->branch.size(); i < size; i++)
+	{
+		delete this->branch[i];
+	}
 }
 
 void tree_node::add_node_by_random(const int& value, const double& chance) /* chance = 0.5 */
@@ -140,7 +144,7 @@ int tree_node::delete_node(const size_t& level)
 	}
 }
 
-void tree_node::print()
+void tree_node::print() const
 {
 	std::cout << this->value;
 	size_t h = this->height(), size = this->branch.size();
@@ -159,12 +163,12 @@ void tree_node::print()
 	std::cout << (h > 2 ? "  " : ")");
 }
 
-size_t tree_node::num_of_children()
+size_t tree_node::num_of_children() const
 {
 	return size_t(this->branch.size());
 }
 //
-double tree_node::average_num_of_children()
+double tree_node::average_num_of_children() const
 {
 	size_t val = 0, n = 0;
 	this->average_num_of_children(val, n);
@@ -173,7 +177,7 @@ double tree_node::average_num_of_children()
 	return ((double)val / (double)n);
 }
 
-size_t tree_node::num_of_nodes()
+size_t tree_node::num_of_nodes() const
 {
 	size_t size = this->branch.size(), num = 1;
 	for (size_t i = 0; i < size; ++i)
@@ -183,7 +187,7 @@ size_t tree_node::num_of_nodes()
 	return size_t(num);
 }
 
-double tree_node::average_num_of_nodes()
+double tree_node::average_num_of_nodes() const
 {
 	size_t n = 0, val = 0, node_val = 0;
 	this->average_num_of_nodes(val, n, node_val);
@@ -192,7 +196,7 @@ double tree_node::average_num_of_nodes()
 	return ((double)val / (double)n);
 }
 
-size_t tree_node::height()
+size_t tree_node::height() const
 {
 	size_t size = this->branch.size(), num, max = 0;
 	for (size_t i = 0; i < size; ++i)
@@ -204,7 +208,7 @@ size_t tree_node::height()
 	return size_t(max);
 }
 
-double tree_node::average_height()
+double tree_node::average_height() const
 {
 	size_t n = 0, val = 0;
 	this->average_height(val, n);
@@ -236,6 +240,7 @@ tree::tree()
 
 tree::~tree()
 {
+	delete this->root;
 }
 
 void tree::add_node_by_random(const int& value, const double& chance)
@@ -274,43 +279,43 @@ int tree::delete_node(const size_t& level)
 	else return this->root->delete_node(level);
 }
 
-void tree::print()
+void tree::print() const
 {
-	if (this->root == nullptr) std::cout << "Tree is empty";
+	if (this->root == nullptr) std::cout << "\nTree is empty\n";
 	else root->print();
 }
 
-size_t tree::num_of_children()
+size_t tree::num_of_children() const
 {
 	if (this->root == nullptr) throw std::exception("Tree is empty");
 	return size_t(root->num_of_children());
 }
 
-double tree::average_num_of_children()
+double tree::average_num_of_children() const
 {
 	if (this->root == nullptr) throw std::exception("Tree is empty");
 	return double(root->average_num_of_children());
 }
 
-size_t tree::num_of_nodes()
+size_t tree::num_of_nodes() const
 {
 	if (this->root == nullptr) throw std::exception("Tree is empty");
 	return size_t(root->num_of_nodes());
 }
 
-double tree::average_num_of_nodes()
+double tree::average_num_of_nodes() const
 {
 	if (this->root == nullptr) throw std::exception("Tree is empty");
 	return double(root->average_num_of_nodes());
 }
 
-size_t tree::height()
+size_t tree::height() const
 {
 	if (this->root == nullptr) throw std::exception("Tree is empty");
 	return size_t(root->height());
 }
 
-double tree::average_height()
+double tree::average_height() const
 {
 	if (this->root == nullptr) throw std::exception("Tree is empty");
 	return double(root->average_height());
