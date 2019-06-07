@@ -1,4 +1,4 @@
-﻿// Tasks: 1, 4, 5, 10, 17, 18
+﻿// Tasks: 1, 4, 5, 10, 17, 18, 20
 #include "pch.h"
 #include "tree.h"
 #include "binary_tree.h"
